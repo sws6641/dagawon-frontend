@@ -120,7 +120,7 @@ dagawon-frontend/
 
 ```bash
 # 레포지토리 클론
-git clone https://github.com/yourname/dagawon.git
+git clone https://github.com/sws6641/dagawon-frontend.git
 cd dagawon-frontend
 
 # 패키지 설치
