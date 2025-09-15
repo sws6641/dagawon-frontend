@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DA-GA-WON
 
-## Getting Started
+**설명**  
+**DA-GA-WON** (다가원) = "다가오는 협업의 공간"
 
-First, run the development server:
+- 팀과 조직의 효율적인 협업을 지원하는 **그룹웨어 시스템**입니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔹 주요 기능
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. 관리자 페이지
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 관리자 회원 추가 및 일반회원/관리자회원 통합 관리
+- 전자 결재 양식 관리
+- 예약 관리 (항목 추가/삭제)
+- 메뉴 구성:
+  - 회원관리
+  - 근태관리
+  - 예약관리
+  - 결재관리
+  - 출퇴근 현황
+  - 근무제 관리
+  - 연차관리
 
-## Learn More
+### 2. 근태관리
 
-To learn more about Next.js, take a look at the following resources:
+**사용자 기능**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 출근 / 퇴근 버튼
+- 출퇴근 현황 확인 (차트 제공)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**관리자 기능**
 
-## Deploy on Vercel
+- 전체 회원 출퇴근 현황 조회 및 수정
+- 근무제 관리 (유형 추가/수정)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. 회원관리
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 회원 리스트 조회
+  - 상세 회원 정보 확인 및 권한 수정
+  - 회원 정보 수정 및 삭제
+- 회원 승인/반려 처리
+
+### 4. 회원가입
+
+- 최초 그룹웨어 계정 생성 후 간편 로그인 연동 (카카오, 네이버, 구글)
+- 기준: 기업별 회원가입 + 간편로그인
+- 회원 정보: 회사 이메일, 패스워드, 도메인, 핸드폰 번호, 이름, 생년월일, 성별, 부서, 지급, 프로필 이미지, 개인 이메일, 입사일, 상태
+- 회원가입 루트:
+  1. 관리자가 이메일로 초대
+  2. 사용자가 초대 링크 통해 회원가입
+
+### 5. 시스템 알림
+
+- 결재, 근태, 예약, 회원 승인 요청 등 알림 설정 메뉴 제공
+
+### 6. 조직도 & 메신저
+
+- 화면 3개 구성:
+  1. 회원 리스트
+  2. 대화 리스트
+  3. 대화 상세 / 조직도
+
+### 7. 대시보드
+
+- 출퇴근 현황 표시
+- 관리자 권한일 경우 관리자 페이지 접근 가능
+
+### 8. 전자결재
+
+- 카테고리: 휴가, 근로 결과 신청, 지출 결의, 품의서
+- 파일 업로드 가능
+
+### 9. 예약서비스
+
+- 관리자가 예약 리스트 생성
+- 대분류: 회의실, 자동차
+- 중분류: 예약 서비스 메인 페이지
+
+---
+
+## 🔹 폴더 구조(프론트)
+
+dagawon-frontend/
+├─ public/ # 정적 파일 (이미지, 아이콘 등)
+├─ src/
+│ ├─ app/
+│ │ ├─ layout.tsx
+│ │ ├─ globals.css
+│ │ └─ page.tsx
+│ ├─ components/ # 공통 컴포넌트
+│ ├─ features/ # 기능 단위 페이지/컴포넌트
+│ │ ├─ admin/ # 관리자 페이지 관련
+│ │ ├─ attendance/ # 근태관리
+│ │ ├─ members/ # 회원관리
+│ │ ├─ dashboard/ # 대시보드
+│ │ ├─ approval/ # 전자결재
+│ │ └─ reservation/ # 예약 서비스
+│ ├─ hooks/ # 커스텀 훅
+│ ├─ store/ # Zustand 상태 관리
+│ └─ utils/ # 유틸 함수
+├─ .gitignore
+├─ package.json
+├─ tsconfig.json
+└─ README.md
+
+---
+
+## 🔹 기술 스택
+
+- **TypeScript**
+- **React / Next.js**
+- **React Query (TanStack Query)**
+- **Zustand** (상태 관리)
+- **Tailwind CSS** (스타일링)
+- **AWS Amplify Hosting** (정적 배포)
+
+---
+
+## 🔹 프로젝트 특징
+
+- 그룹웨어 핵심 기능 통합
+- 사용자/관리자 권한 구분
+- 실시간 알림 및 대시보드 제공
+- 전자결재, 근태, 예약, 회원관리 등 다양한 업무 지원
