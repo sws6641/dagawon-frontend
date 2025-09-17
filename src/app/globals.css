@@ -1,26 +1,90 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Global Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #171717;
+  --foreground: #ffffff;
+  --link: #ffffff;
+  --link-hover: #888888;
+  --button-bg: #ffffff;
+  --button-text: #171717;
+  --button-hover-bg: #888888;
+  --button-hover-text: #ffffff;
+  --font-sans: 'Arial', sans-serif;
+  --font-serif: 'Helvetica', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base Styles */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
+/* Links */
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+/* Buttons */
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-text);
+}
+
+/* Input / Forms */
+input,
+textarea,
+select {
+  background-color: var(--foreground);
+  color: var(--background);
+  border: 1px solid var(--background);
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--link);
+}
+
+/* Optional Dark Mode (미사용) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #171717;
+    --link: #171717;
+    --link-hover: #888888;
+    --button-bg: #171717;
+    --button-text: #ffffff;
+    --button-hover-bg: #888888;
+    --button-hover-text: #171717;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
