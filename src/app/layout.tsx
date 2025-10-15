@@ -1,10 +1,23 @@
-import './globals.css'
-import { ReactNode } from 'react'
+import React, { ReactNode } from "react";
+import Provider from "@components/common/Provider";
+import "@styles/globals.css";
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+                                     children,
+                                   }: Readonly<{
+  children: ReactNode;
+}>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+    <head></head>
+    <body>
+    <Provider>
+      <div id="app">
+        {children}
+      </div>
+      <div id="portal" />
+    </Provider>
+    </body>
     </html>
-  )
+  );
 }

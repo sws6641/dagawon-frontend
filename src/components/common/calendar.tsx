@@ -32,13 +32,13 @@ function Calendar({ className, selected, onSelect }: CalendarProps) {
   return (
     <div className={cn("p-3 bg-white rounded-lg shadow-md", className)}>
       <div className="flex justify-between items-center mb-2">
-        <Button variant="outline" size="sm" onClick={prevMonth}>
+        <Button variant="outline" size="sm" color="primary" onClick={prevMonth}>
           &#8249;
         </Button>
         <span className="text-sm font-medium">
           {currentMonth.toLocaleString("default", { month: "long" })} {currentMonth.getFullYear()}
         </span>
-        <Button variant="outline" size="sm" onClick={nextMonth}>
+        <Button variant="outline" size="sm" color="primary" onClick={nextMonth}>
           &#8250;
         </Button>
       </div>

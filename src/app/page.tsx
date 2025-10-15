@@ -1,9 +1,29 @@
-export default function Home() {
+"use client";
+
+import { CustomErrorBoundary } from "@components/error-boundary";
+import { Button } from "@components/common/button";
+
+export default function Page() {
+  const handleClick = () => {
+    console.log("click!");
+  }
+
   return (
-    <main className="p-8">
-      <h1 className="text-4xl font-serif text-white">DA-GA-WON</h1>
-      <p className="mt-4 text-white">다가원프로젝트 메인화면</p>
-      
-    </main>
-  )
+    <div className="page">
+     <CustomErrorBoundary
+      element={<main />}
+      />
+
+      <Button
+        variant="default"
+        color="neutral"
+        size="default"
+        onClick={handleClick}
+      >
+        가이드 버튼
+      </Button>
+
+      <span className="text-primary sample-spacing sample-ring">Test Text</span>
+    </div>
+  );
 }
